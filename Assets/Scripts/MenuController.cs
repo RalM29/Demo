@@ -39,19 +39,3 @@ public class MenuControlador : MonoBehaviour
     }
 }
 
-/*
-    private void IniciarJuegoA(ClickEvent evt)
-    {
-        SceneManager.LoadScene("SampleScene");
-
-    }
-    private void IniciarJuegoB(ClickEvent evt)
-    {
-        SceneManager.LoadScene("EscenaMapa");
-
-    }
-
-
-}
-
-    */
