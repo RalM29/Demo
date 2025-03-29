@@ -4,16 +4,21 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+
 
 public class Red : MonoBehaviour
 {
     private TextField tfResultado;
     private TextField tfNombre;
-    private IntegerField tfPuntos;
+    private TextField tfPassword;
+    private string horaInicio; //AGREGAMOS
     public struct DatosUsuario
     {
         public string nombre;
-        public int puntos;
+        public string password;
+        public string horaInicio; //AGREGAMOS
+        public string horaFin; //AGREGAMOS
     }
 
 
@@ -23,14 +28,17 @@ public class Red : MonoBehaviour
         tfResultado = root.Q<TextField>("Resultado");
         print(tfResultado.value);
         tfNombre = root.Q<TextField>("Nombre");
-        tfPuntos = root.Q<IntegerField>("Puntos");
-        print(tfPuntos.value);
+        tfPassword = root.Q<TextField>("Password");
+        print(tfPassword.value);
 
         Button botonLeer = root.Q<Button>("BotonLeer");
         botonLeer.clicked += LeerTextoPlano;
 
         Button botonEnviar = root.Q<Button>("BotonEnviar");
         botonEnviar.clicked += EnviarDatosJSON;
+
+        //AGREGAMOS
+        horaInicio= DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     }
 
     private void EnviarDatosJSON()
@@ -42,7 +50,9 @@ public class Red : MonoBehaviour
     {
         DatosUsuario datos;
         datos.nombre = tfNombre.value;
-        datos.puntos = tfPuntos.value;
+        datos.password = tfPassword.value;
+        datos.horaInicio = horaInicio; //AGREGAMOS
+        datos.horaFin = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); //AGREGAMOS
 
         string datosJSON = JsonUtility.ToJson(datos);
         print(datosJSON);
@@ -50,7 +60,7 @@ public class Red : MonoBehaviour
         UnityWebRequest request = UnityWebRequest.Post("http://10.48.118.9:3000/unity/recibeJSON", datosJSON, "application/json");
         yield return request.SendWebRequest();
 
-        //Después de cierto tiempo continua
+        //Despuï¿½s de cierto tiempo continua
         if (request.result == UnityWebRequest.Result.Success)
         {
             tfResultado.value = datosJSON + "\nEnviado correctamente\n\n";
@@ -59,11 +69,13 @@ public class Red : MonoBehaviour
 
             DatosUsuario usuario = JsonUtility.FromJson<DatosUsuario>(respuesta);
             tfResultado.value += "\nNombre: " + usuario.nombre;
-            tfResultado.value += "\nPuntos: " + usuario.puntos;
+            tfResultado.value += "\nPuntos: " + usuario.password;
+
+            SceneManager.LoadScene("EscenaMenu");
         }
         else
         {
-            tfResultado.value = "Error de conexión" + request.responseCode;
+            tfResultado.value = "Error de conexiï¿½n" + request.responseCode;
         }   
     }
 
@@ -77,7 +89,7 @@ public class Red : MonoBehaviour
         UnityWebRequest request = UnityWebRequest.Get("http://10.48.118.9:3000/");
         yield return request.SendWebRequest();
 
-        //Después de cierto tiempo continua
+        //Despuï¿½s de cierto tiempo continua
         if (request.result == UnityWebRequest.Result.Success)
         {
             string texto = request.downloadHandler.text;
@@ -85,7 +97,7 @@ public class Red : MonoBehaviour
         }
         else
         {
-            tfResultado.value = "Error de conexión" + request.responseCode;
+            tfResultado.value = "Error de conexiï¿½n" + request.responseCode;
         }
 
         request.Dispose();

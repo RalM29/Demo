@@ -2,12 +2,18 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement; //Escena
 using UnityEngine.UIElements;
+
+/*
+Autores: María Fernanda Pineda Pat, Daiana Andrea Armenta Maya
+En este codigo se implemento para hacer funcionar los botones del menú de inicio del juego
+*/
 public class MenuControlador : MonoBehaviour
 {
     private UIDocument menu; //Objeto en la escena
 
     private Button botonA; //Componente de la UI
     private Button botonB;
+    
 
     void OnEnable()
     {
@@ -15,9 +21,11 @@ public class MenuControlador : MonoBehaviour
         var root = menu.rootVisualElement;
         botonA = root.Q<Button>("BotonJuegoA");
         botonB = root.Q<Button>("BotonJuegoB");
+    
         //Callbacks
         botonA.RegisterCallback<ClickEvent, String>(IniciarJuego, "SampleScene");
         botonB.RegisterCallback<ClickEvent, String>(IniciarJuego, "EscenaMapa");
+      
     }
     private void IniciarJuego(ClickEvent evt, String escena)
     {
@@ -25,7 +33,7 @@ public class MenuControlador : MonoBehaviour
     }
 }
 
-    /*
+/*
     private void IniciarJuegoA(ClickEvent evt)
     {
         SceneManager.LoadScene("SampleScene");
