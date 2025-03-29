@@ -1,0 +1,10 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MenuPrincipal.uss?fileID=7433441132597879392&amp;guid=e0e24c7ac5271824e8408c2eb503c641&amp;type=3#MenuPrincipal" />
+    <engine:VisualElement name="Contenedor" class="contenedor" style="flex-grow: 1;">
+        <engine:Label text="Menú Principal" name="Titulo" class="titulo" />
+        <engine:VisualElement name="Botones" class="botones" style="flex-grow: 1; width: auto; height: auto;">
+            <engine:Button text="Juego A" name="BotonJuegoA" class="boton" />
+            <engine:Button text="Juego B" name="BotonJuegoB" class="boton" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

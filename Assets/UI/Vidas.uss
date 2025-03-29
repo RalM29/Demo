@@ -1,0 +1,21 @@
+.vidas {
+    width: 500px;
+    height: 150px;
+    flex-direction: row;
+    background-size: 100% 150px;
+    padding-top: 15px;
+    padding-right: 125px;
+}
+
+.vida {
+    background-image: url("project://database/Assets/Images/Heart.png?fileID=2800000&guid=222d62d87db5931498bb85845842b0d3&type=3#Heart");
+    background-size: 128px 128px;
+    background-position-y: top 0;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    flex-direction: column;
+}

@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Regreso.uss?fileID=7433441132597879392&amp;guid=31f4391be3bb2cf43937befd4c483728&amp;type=3#Regreso" />
+    <ui:VisualElement name="Contenedor" class="contenedor" style="flex-grow: 1; scale: 1 1.15; width: 100%; height: 100%;">
+        <ui:Button text="&lt;--" name="botonRegreso" class="boton" style="font-size: 55px;" />
+    </ui:VisualElement>
+</ui:UXML>

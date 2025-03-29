@@ -1,0 +1,33 @@
+.contenedor {
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.boton:hover {
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    scale: 1.15 1;
+}
+
+.boton {
+    width: 20%;
+    height: 10%;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 100px;
+    margin-left: 50px;
+    align-content: auto;
+    justify-content: flex-end;
+    align-items: auto;
+    align-self: auto;
+    background-image: url("project://database/Assets/Buttons/PNG/22Button_Midl_Green.png?fileID=2800000&guid=bf625ae84f769384fb0cd1cc52d14971&type=3#22Button_Midl_Green");
+    background-color: rgba(181, 181, 181, 0);
+    border-left-color: rgba(55, 55, 55, 0);
+    border-right-color: rgba(55, 55, 55, 0);
+    border-top-color: rgba(55, 55, 55, 0);
+    border-bottom-color: rgba(55, 55, 55, 0);
+    transition-timing-function: ease;
+    transition-duration: 0s;
+    scale: 1 1;
+}
