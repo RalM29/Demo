@@ -7,8 +7,8 @@
         </engine:VisualElement>
         <engine:VisualElement name="PanelDerecho" class="panel-derecho" style="flex-grow: 1;">
             <engine:VisualElement name="CapturaDatos" class="captura-datos" style="flex-grow: 1;">
-                <engine:TextField label="Nombre del usuario:" placeholder-text="filler text" name="Nombre" value="Roberto Mtz" style="font-size: 24px; -unity-text-align: upper-right;" />
-                <engine:TextField label="Contraseña" placeholder-text="filler text" name="Password" style="font-size: 24px; -unity-text-align: upper-right;" />
+                <engine:TextField label="Nombre del usuario:" placeholder-text="filler text" name="Nombre" value="johndoe" style="font-size: 24px; -unity-text-align: upper-right;" />
+                <engine:TextField label="Contraseña" placeholder-text="filler text" name="Password" value="hashedpassword123" style="font-size: 24px; -unity-text-align: upper-right;" />
                 <engine:Button text="Iniciar sesión" name="BotonEnviar" class="botn-envia" />
             </engine:VisualElement>
         </engine:VisualElement>

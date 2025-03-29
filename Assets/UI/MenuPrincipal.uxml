@@ -7,4 +7,5 @@
             <engine:Button text="Juego B" name="BotonJuegoB" class="boton" />
         </engine:VisualElement>
     </engine:VisualElement>
+    <engine:Button text="Salir" name="BotonAbandonar" class="boton" style="align-self: center; margin-bottom: 50px;" />
 </engine:UXML>
