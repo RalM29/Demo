@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections;
 using UnityEngine;
@@ -13,7 +12,7 @@ Este codigo se encarga de la conexión a base de datos
 public class Red : MonoBehaviour
 {
     private TextField tfResultado;
-    private TextField tfNombre;
+    public TextField tfNombre;
     private TextField tfPassword;
 
     public struct DatosUsuario
@@ -46,7 +45,7 @@ public class Red : MonoBehaviour
     }
     private IEnumerator DescargarTextoPlano()
     {
-        UnityWebRequest request = UnityWebRequest.Get("http://44.197.230.32:8080");
+        UnityWebRequest request = UnityWebRequest.Get("http://44.222.117.87:8080");
         yield return request.SendWebRequest();
 
         //Despu�s de cierto tiempo continua
@@ -77,7 +76,7 @@ public class Red : MonoBehaviour
         string datosJSON = JsonUtility.ToJson(datos);
         print(datosJSON);
 
-        UnityWebRequest request = UnityWebRequest.Post("http://44.197.230.32:8080/unity/login", datosJSON, "application/json");
+        UnityWebRequest request = UnityWebRequest.Post("http://44.222.117.87:8080/unity/login", datosJSON, "application/json");
         yield return request.SendWebRequest();
 
         //Despu�s de cierto tiempo continua
@@ -88,6 +87,10 @@ public class Red : MonoBehaviour
             tfResultado.value += "Respuesta\n" + respuesta;
 
             DatosUsuario usuario = JsonUtility.FromJson<DatosUsuario>(respuesta);
+
+            PlayerPrefs.SetString("nombreUsuario", datos.nombre);
+            PlayerPrefs.Save(); // opcional pero buena práctica
+
             tfResultado.value += "\nNombre: " + usuario.nombre;
             tfResultado.value += "\nPassword: " + usuario.password;
 
